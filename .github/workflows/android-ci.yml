@@ -1,3 +1,4 @@
+
 name: Android CI - Gestão Store
 
 on:
@@ -24,14 +25,18 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Run Unit and Robolectric Tests
-        run: gradle :app:testDebugUnitTest
-
+      # 1. Compilar o APK
       - name: Build Debug APK
         run: gradle :app:assembleDebug
 
+      # 2. Disponibilizar o APK
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: gestao-store-debug-apk
           path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+
+      # 3. Executar os testes sem desativá-los
+      - name: Run Unit and Robolectric Tests
+        run: gradle :app:testDebugUnitTest
