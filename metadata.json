@@ -1,0 +1,8 @@
+{
+  "name": "Gestão Store",
+  "description": "Sistema nativo de gestão comercial para lojas de roupas masculinas e femininas com controle de estoque por variações, vendas, pedidos, clientes, financeiro e relatórios offline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
